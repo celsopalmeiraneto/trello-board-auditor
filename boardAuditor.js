@@ -1,7 +1,8 @@
 
 var boardAuditor = (function(){
   var board = null;
-  var boardContent = "#boardContent";
+  var boardContent = $("#boardContent");
+  var actionsList  = $("#actionsList");
 
   function init(){
     $("#selectUser").change(function(evt){
@@ -14,6 +15,8 @@ var boardAuditor = (function(){
     });
 
     $("#btnReadJSON").click(function(){
+      cleanActionList();
+
       var jsonText = $("#jsonContent").val();
       var objBoard;
       try {
@@ -33,10 +36,13 @@ var boardAuditor = (function(){
   init();
 
   function disableAuditing(){
-    $(boardContent).addClass("disabled");
+    boardContent.addClass("disabled");
   }
   function enableAuditing(){
-    $(boardContent).removeClass("disabled");
+    boardContent.removeClass("disabled");
+  }
+  function cleanActionList(){
+    actionsList.html("");
   }
 
   function searchMemberById(id){
@@ -57,6 +63,7 @@ var boardAuditor = (function(){
     return false;
   }
 
+
   function populateUserList(){
     var tmplOption = "<option value=\"{{id}}\" >{{name}}</option>";
     var listaOption = "<option selected='selected' disabled='disabled'>Select a user</option>";
@@ -68,7 +75,7 @@ var boardAuditor = (function(){
 
   function populateTable(userId){
 
-    $("#lista").html("");
+    cleanActionList();
 
     var actionsUser = new Array();
 
@@ -154,7 +161,7 @@ var boardAuditor = (function(){
       lines.push(line);
     });
 
-    $("#lista").html(lines.join(''));
+    actionsList.html(lines.join(''));
 
   }
 
