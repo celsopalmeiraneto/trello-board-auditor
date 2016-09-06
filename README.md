@@ -14,5 +14,6 @@ The following actions are currently supported:
 * addMemberToBoard
 * createCard
 * deleteCard
+* createList
 
 Feel free to add support to more actions!

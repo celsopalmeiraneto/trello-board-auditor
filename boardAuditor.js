@@ -140,6 +140,9 @@ var boardAuditor = (function(){
         case "createCard":
           line = line.replace("{{action}}", "New Card Created.");
           break;
+        case "createList":
+          line = line.replace("{{action}}", "New list: \""+data.list.name+"\".");
+          break;
         case "deleteCard":
           var card = searchCardById(data.card.id);
           if(!card)
