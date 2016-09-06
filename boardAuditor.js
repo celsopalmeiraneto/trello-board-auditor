@@ -59,7 +59,7 @@ var boardAuditor = (function(){
 
   function populateUserList(){
     var tmplOption = "<option value=\"{{id}}\" >{{name}}</option>";
-    var listaOption = "";
+    var listaOption = "<option selected='selected' disabled='disabled'>Select a user</option>";
     for(var i = 0; i < board.members.length; i++){
       listaOption += tmplOption.replace("{{id}}", board.members[i].id).replace("{{name}}", board.members[i].fullName);
     }
