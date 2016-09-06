@@ -1,0 +1,45 @@
+<html>
+  <head>
+  	<!-- Latest compiled and minified CSS -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style>
+      body{
+        padding: 1em;
+      }
+      #boardContent{
+        margin-top: 50px;
+      }
+      .disabled{
+        pointer-events: none;
+        opacity: 0.4;
+      }
+    </style>
+    <title>Trello Board Auditing Tool</title>
+  </head>
+  <body>
+	  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="boardAuditor.js"></script>
+  	<h1>Trello Board Auditing Tool</h1>
+    <h3>Paste the JSON content of your board:</h3>
+    <textarea class="form-control" id="jsonContent" style="width: 99%; height:8em"></textarea>
+    <br />
+    <button id="btnReadJSON" class="btn btn-primary">Read!</button>
+    <div id="boardContent" class="disabled">
+      <label>User:</label>
+    	<select id="selectUser">
+    	</select>
+    	<table class="table">
+    		<thead>
+    			<tr>
+    				<th>Idx #</th>
+    				<th>Date</th>
+    				<th>Card</th>
+    				<th>Action</th>
+    			</tr>
+    		</thead>
+    		<tbody id="lista">
+    		</tbody>
+    	</table>
+    </div>
+  </body>
+</html>
